@@ -1,0 +1,64 @@
+.faculty-results-page {
+  min-height: 100vh;
+  padding: 40px;
+  background: #f4f7fb;
+}
+
+.faculty-results-header {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.faculty-results-header h1 {
+  margin: 0;
+  font-size: 32px;
+}
+
+.faculty-results-container {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.faculty-result-card {
+  background: white;
+  padding: 28px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.faculty-result-card h2 {
+  color: #2563eb;
+  margin-bottom: 15px;
+}
+
+.faculty-result-card p {
+  color: #555;
+  line-height: 1.5;
+}
+
+.completed-status {
+  font-weight: bold;
+  color: #16a34a !important;
+}
+
+.faculty-results-message {
+  text-align: center;
+  color: #666;
+  font-size: 17px;
+}
+
+@media (max-width: 700px) {
+  .faculty-results-container {
+    grid-template-columns: 1fr;
+  }
+
+  .faculty-results-page {
+    padding: 20px;
+  }
+}

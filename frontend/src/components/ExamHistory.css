@@ -1,0 +1,69 @@
+.exam-history-page {
+  min-height: 100vh;
+  padding: 40px;
+  background: #f4f7fb;
+}
+
+.exam-history-header {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.exam-history-header h1 {
+  margin: 0;
+  font-size: 32px;
+}
+
+.exam-history-list {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.exam-card {
+  background: white;
+  padding: 28px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.exam-card h2 {
+  color: #2563eb;
+  margin-bottom: 15px;
+}
+
+.exam-card p {
+  color: #555;
+  line-height: 1.5;
+}
+
+.completed-status {
+  font-weight: bold;
+  color: #16a34a !important;
+}
+
+.not-attempted-status {
+  font-weight: bold;
+  color: #d97706 !important;
+}
+
+.history-message {
+  text-align: center;
+  color: #666;
+  font-size: 17px;
+}
+
+@media (max-width: 700px) {
+  .exam-history-list {
+    grid-template-columns: 1fr;
+  }
+
+  .exam-history-page {
+    padding: 20px;
+  }
+}

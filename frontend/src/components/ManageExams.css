@@ -1,0 +1,452 @@
+/* ============================= */
+/* MANAGE EXAMS PAGE */
+/* ============================= */
+
+.manage-exams-page {
+  min-height: 100vh;
+  padding: 40px;
+
+  position: relative;
+  overflow: hidden;
+
+  background: linear-gradient(
+    120deg,
+    #eff6ff,
+    #f5f3ff,
+    #fdf2f8,
+    #ecfeff
+  );
+
+  background-size: 400% 400%;
+
+  animation: manageBackground 14s ease infinite;
+
+  font-family: Arial, sans-serif;
+}
+
+/* ============================= */
+/* BACKGROUND GLOW */
+/* ============================= */
+
+.manage-exams-page::before,
+.manage-exams-page::after {
+  content: "";
+
+  position: absolute;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  filter: blur(5px);
+}
+
+.manage-exams-page::before {
+  width: 330px;
+  height: 330px;
+
+  top: -130px;
+  right: -100px;
+
+  background: rgba(99, 102, 241, 0.18);
+
+  animation: manageFloat 8s ease-in-out infinite;
+}
+
+.manage-exams-page::after {
+  width: 280px;
+  height: 280px;
+
+  bottom: -100px;
+  left: -80px;
+
+  background: rgba(236, 72, 153, 0.15);
+
+  animation: manageFloat 10s ease-in-out infinite reverse;
+}
+
+/* ============================= */
+/* HEADER */
+/* ============================= */
+
+.manage-exams-header {
+  max-width: 1000px;
+
+  margin: 0 auto 35px;
+
+  position: relative;
+
+  text-align: center;
+
+  z-index: 2;
+
+  animation: manageAppear 0.7s ease;
+}
+
+.manage-exams-header h1 {
+  margin: 0;
+
+  font-size: 34px;
+
+  background: linear-gradient(
+    90deg,
+    #2563eb,
+    #7c3aed,
+    #ec4899,
+    #06b6d4
+  );
+
+  background-size: 250% auto;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: titleGradient 5s linear infinite;
+}
+
+/* ============================= */
+/* BACK BUTTON */
+/* ============================= */
+
+.back-button {
+  position: absolute;
+
+  left: 0;
+  top: 5px;
+
+  padding: 10px 18px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: linear-gradient(
+    90deg,
+    #64748b,
+    #475569
+  );
+
+  color: white;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+
+  box-shadow:
+    0 5px 15px rgba(71, 85, 105, 0.2);
+}
+
+.back-button:hover {
+  background: linear-gradient(
+    90deg,
+    #475569,
+    #334155
+  );
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 10px 20px rgba(71, 85, 105, 0.3);
+}
+
+/* ============================= */
+/* EXAM LIST */
+/* ============================= */
+
+.exam-list {
+  max-width: 1000px;
+
+  margin: auto;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+/* ============================= */
+/* EXAM CARD */
+/* ============================= */
+
+.exam-card {
+  background: rgba(255, 255, 255, 0.88);
+
+  backdrop-filter: blur(15px);
+
+  padding: 28px 32px;
+
+  margin-bottom: 22px;
+
+  border-radius: 20px;
+
+  border-left: 6px solid #6366f1;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.8);
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.07);
+
+  position: relative;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+
+  animation: examCardAppear 0.7s ease backwards;
+}
+
+/* Stagger cards */
+
+.exam-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.exam-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.exam-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.exam-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.exam-card:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+/* 3D hover */
+
+.exam-card:hover {
+  transform:
+    translateY(-7px)
+    perspective(900px)
+    rotateX(1.5deg);
+
+  box-shadow:
+    0 20px 40px rgba(99, 102, 241, 0.16);
+}
+
+/* Decorative circle */
+
+.exam-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 130px;
+  height: 130px;
+
+  border-radius: 50%;
+
+  right: -55px;
+  bottom: -55px;
+
+  background: rgba(99, 102, 241, 0.08);
+
+  transition: all 0.5s ease;
+
+  pointer-events: none;
+}
+
+.exam-card:hover::after {
+  transform: scale(1.5);
+
+  background: rgba(99, 102, 241, 0.13);
+}
+
+/* ============================= */
+/* EXAM TITLE */
+/* ============================= */
+
+.exam-card h2 {
+  margin-top: 0;
+
+  margin-bottom: 12px;
+
+  color: #4f46e5;
+
+  font-size: 24px;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+/* ============================= */
+/* DESCRIPTION */
+/* ============================= */
+
+.exam-card p {
+  color: #555;
+
+  line-height: 1.6;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+/* ============================= */
+/* EXAM DETAILS */
+/* ============================= */
+
+.exam-details {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 15px 35px;
+
+  margin-top: 20px;
+
+  position: relative;
+
+  z-index: 2;
+
+  color: #374151;
+}
+
+/* Individual detail styling */
+
+.exam-details span {
+  padding: 9px 14px;
+
+  border-radius: 10px;
+
+  background: rgba(99, 102, 241, 0.08);
+
+  border: 1px solid rgba(99, 102, 241, 0.1);
+
+  transition: all 0.25s ease;
+}
+
+.exam-details span:hover {
+  transform: translateY(-2px);
+
+  background: rgba(99, 102, 241, 0.13);
+}
+
+/* ============================= */
+/* MESSAGE */
+/* ============================= */
+
+.exam-message {
+  text-align: center;
+
+  color: #6b7280;
+
+  font-size: 17px;
+
+  position: relative;
+
+  z-index: 2;
+
+  padding: 30px;
+}
+
+/* ============================= */
+/* ANIMATIONS */
+/* ============================= */
+
+@keyframes manageBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes manageFloat {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(25px, 25px) scale(1.08);
+  }
+}
+
+@keyframes manageAppear {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes examCardAppear {
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes titleGradient {
+  0% {
+    background-position: 0% center;
+  }
+
+  100% {
+    background-position: 250% center;
+  }
+}
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+@media (max-width: 700px) {
+  .manage-exams-page {
+    padding: 20px;
+  }
+
+  .manage-exams-header {
+    padding-top: 55px;
+  }
+
+  .manage-exams-header h1 {
+    font-size: 28px;
+  }
+
+  .back-button {
+    left: 50%;
+
+    transform: translateX(-50%);
+  }
+
+  .back-button:hover {
+    transform: translateX(-50%) translateY(-3px);
+  }
+
+  .exam-card {
+    padding: 24px;
+  }
+
+  .exam-details {
+    flex-direction: column;
+
+    gap: 10px;
+  }
+}

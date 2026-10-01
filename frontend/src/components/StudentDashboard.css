@@ -1,0 +1,504 @@
+/* ============================= */
+/* STUDENT DASHBOARD */
+/* ============================= */
+
+.dashboard {
+  min-height: 100vh;
+  padding: 40px;
+
+  position: relative;
+  overflow: hidden;
+
+  background: linear-gradient(
+    120deg,
+    #eff6ff,
+    #f5f3ff,
+    #fdf2f8,
+    #ecfeff
+  );
+
+  background-size: 400% 400%;
+
+  animation: studentBackground 14s ease infinite;
+
+  font-family: Arial, sans-serif;
+}
+
+/* Background glow */
+
+.dashboard::before,
+.dashboard::after {
+  content: "";
+  position: absolute;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  filter: blur(5px);
+}
+
+.dashboard::before {
+  width: 320px;
+  height: 320px;
+
+  top: -130px;
+  right: -100px;
+
+  background: rgba(59, 130, 246, 0.18);
+
+  animation: studentFloat 8s ease-in-out infinite;
+}
+
+.dashboard::after {
+  width: 280px;
+  height: 280px;
+
+  bottom: -100px;
+  left: -80px;
+
+  background: rgba(168, 85, 247, 0.15);
+
+  animation: studentFloat 10s ease-in-out infinite reverse;
+}
+
+/* ============================= */
+/* HEADER */
+/* ============================= */
+
+.dashboard-header {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+
+  padding: 30px 35px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  position: relative;
+  z-index: 2;
+
+  border-radius: 24px;
+
+  background: linear-gradient(
+    120deg,
+    #2563eb,
+    #6366f1,
+    #8b5cf6,
+    #ec4899,
+    #06b6d4
+  );
+
+  background-size: 300% 300%;
+
+  color: white;
+
+  box-shadow:
+    0 18px 45px rgba(99, 102, 241, 0.28);
+
+  animation:
+    headerGradient 8s ease infinite,
+    dashboardAppear 0.7s ease;
+}
+
+/* Header shine */
+
+.dashboard-header::after {
+  content: "";
+
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.1);
+
+  right: -60px;
+  top: -80px;
+
+  animation: studentFloat 7s ease-in-out infinite;
+}
+
+/* ============================= */
+/* HEADER TEXT */
+/* ============================= */
+
+.dashboard-header h1 {
+  margin: 0;
+
+  font-size: 36px;
+
+  position: relative;
+  z-index: 2;
+}
+
+.dashboard-header p {
+  margin: 8px 0 0;
+
+  color: #f5f3ff;
+
+  font-size: 16px;
+
+  position: relative;
+  z-index: 2;
+}
+
+/* ============================= */
+/* LOGOUT */
+/* ============================= */
+
+.logout-button {
+  padding: 11px 22px;
+
+  border: 2px solid rgba(255, 255, 255, 0.7);
+
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.15);
+
+  backdrop-filter: blur(8px);
+
+  color: white;
+
+  font-size: 15px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  position: relative;
+  z-index: 3;
+
+  transition: all 0.3s ease;
+}
+
+.logout-button:hover {
+  background: white;
+
+  color: #6366f1;
+
+  transform: translateY(-3px) scale(1.03);
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ============================= */
+/* CARDS */
+/* ============================= */
+
+.cards {
+  max-width: 1200px;
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 28px;
+
+  position: relative;
+  z-index: 2;
+}
+
+/* ============================= */
+/* COMMON CARD */
+/* ============================= */
+
+.card {
+  background: rgba(255, 255, 255, 0.88);
+
+  backdrop-filter: blur(14px);
+
+  padding: 32px;
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.07);
+
+  border-top: 6px solid #6366f1;
+
+  position: relative;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+
+  animation: cardAppear 0.7s ease backwards;
+}
+
+/* Different entrance delays */
+
+.card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+/* 3D hover */
+
+.card:hover {
+  transform:
+    translateY(-10px)
+    perspective(800px)
+    rotateX(2deg)
+    rotateY(-2deg);
+
+  box-shadow:
+    0 22px 45px rgba(99, 102, 241, 0.2);
+}
+
+/* Glow circle */
+
+.card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 140px;
+  height: 140px;
+
+  border-radius: 50%;
+
+  right: -55px;
+  bottom: -55px;
+
+  background: rgba(99, 102, 241, 0.08);
+
+  transition: all 0.5s ease;
+}
+
+.card:hover::after {
+  transform: scale(1.5);
+
+  background: rgba(99, 102, 241, 0.13);
+}
+
+/* ============================= */
+/* CARD CONTENT */
+/* ============================= */
+
+.card h2 {
+  margin-top: 0;
+
+  font-size: 24px;
+
+  color: #1e1b4b;
+
+  position: relative;
+  z-index: 2;
+}
+
+.card p {
+  color: #555;
+
+  line-height: 1.5;
+
+  position: relative;
+  z-index: 2;
+}
+
+/* ============================= */
+/* BUTTON */
+/* ============================= */
+
+.card button {
+  margin-top: 15px;
+
+  padding: 12px 22px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  color: white;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  position: relative;
+  z-index: 2;
+
+  background-size: 250% auto;
+
+  transition: all 0.3s ease;
+
+  box-shadow:
+    0 6px 15px rgba(99, 102, 241, 0.2);
+}
+
+.card button:hover {
+  transform: translateY(-4px) scale(1.03);
+
+  box-shadow:
+    0 10px 25px rgba(99, 102, 241, 0.3);
+
+  background-position: right center;
+}
+
+.card button:active {
+  transform: translateY(-1px);
+}
+
+/* ============================= */
+/* CARD COLORS */
+/* ============================= */
+
+.card:nth-child(1) {
+  border-top-color: #2563eb;
+}
+
+.card:nth-child(1) button {
+  background-image: linear-gradient(
+    90deg,
+    #2563eb,
+    #06b6d4,
+    #2563eb
+  );
+}
+
+.card:nth-child(2) {
+  border-top-color: #7c3aed;
+}
+
+.card:nth-child(2) button {
+  background-image: linear-gradient(
+    90deg,
+    #7c3aed,
+    #ec4899,
+    #7c3aed
+  );
+}
+
+.card:nth-child(3) {
+  border-top-color: #10b981;
+}
+
+.card:nth-child(3) button {
+  background-image: linear-gradient(
+    90deg,
+    #059669,
+    #10b981,
+    #34d399
+  );
+}
+
+.card:nth-child(4) {
+  border-top-color: #f97316;
+}
+
+.card:nth-child(4) button {
+  background-image: linear-gradient(
+    90deg,
+    #f97316,
+    #ef4444,
+    #f97316
+  );
+}
+
+/* ============================= */
+/* ANIMATIONS */
+/* ============================= */
+
+@keyframes studentBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes headerGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes studentFloat {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(25px, 25px);
+  }
+}
+
+@keyframes dashboardAppear {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cardAppear {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+@media (max-width: 700px) {
+  .dashboard {
+    padding: 20px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+
+    text-align: center;
+
+    gap: 20px;
+  }
+}

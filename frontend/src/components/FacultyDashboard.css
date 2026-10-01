@@ -1,0 +1,552 @@
+/* ============================= */
+/* FACULTY DASHBOARD */
+/* ============================= */
+
+.faculty-dashboard {
+  min-height: 100vh;
+  padding: 40px;
+
+  position: relative;
+  overflow: hidden;
+
+  background: linear-gradient(
+    120deg,
+    #eff6ff,
+    #f5f3ff,
+    #fdf2f8,
+    #ecfeff
+  );
+
+  background-size: 400% 400%;
+
+  animation: facultyBackground 14s ease infinite;
+}
+
+/* Background floating glow */
+
+.faculty-dashboard::before,
+.faculty-dashboard::after {
+  content: "";
+
+  position: absolute;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  filter: blur(5px);
+}
+
+.faculty-dashboard::before {
+  width: 350px;
+  height: 350px;
+
+  top: -140px;
+  right: -100px;
+
+  background: rgba(139, 92, 246, 0.2);
+
+  animation: facultyFloat 8s ease-in-out infinite;
+}
+
+.faculty-dashboard::after {
+  width: 300px;
+  height: 300px;
+
+  bottom: -100px;
+  left: -80px;
+
+  background: rgba(236, 72, 153, 0.16);
+
+  animation: facultyFloat 10s ease-in-out infinite reverse;
+}
+
+/* ============================= */
+/* HEADER */
+/* ============================= */
+
+.faculty-header {
+  max-width: 1200px;
+
+  margin: 0 auto 40px;
+
+  padding: 30px 35px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  position: relative;
+
+  z-index: 2;
+
+  border-radius: 24px;
+
+  background: linear-gradient(
+    120deg,
+    #1d4ed8,
+    #6366f1,
+    #7c3aed,
+    #db2777,
+    #0891b2
+  );
+
+  background-size: 300% 300%;
+
+  color: white;
+
+  box-shadow:
+    0 18px 45px rgba(99, 102, 241, 0.3);
+
+  animation:
+    facultyHeaderGradient 8s ease infinite,
+    facultyAppear 0.7s ease;
+}
+
+/* Header floating decoration */
+
+.faculty-header::after {
+  content: "";
+
+  position: absolute;
+
+  width: 190px;
+  height: 190px;
+
+  border-radius: 50%;
+
+  right: -70px;
+  top: -90px;
+
+  background: rgba(255, 255, 255, 0.1);
+
+  animation: facultyFloat 7s ease-in-out infinite;
+}
+
+/* ============================= */
+/* HEADER TEXT */
+/* ============================= */
+
+.faculty-header h1 {
+  margin: 0;
+
+  font-size: 36px;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+.faculty-header p {
+  margin: 8px 0 0;
+
+  color: #f5f3ff;
+
+  font-size: 16px;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+/* ============================= */
+/* LOGOUT */
+/* ============================= */
+
+.logout-button {
+  padding: 11px 22px;
+
+  border: 2px solid rgba(255, 255, 255, 0.7);
+
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.15);
+
+  backdrop-filter: blur(8px);
+
+  color: white;
+
+  font-size: 15px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  position: relative;
+
+  z-index: 3;
+
+  transition: all 0.3s ease;
+}
+
+.logout-button:hover {
+  background: white;
+
+  color: #6366f1;
+
+  transform: translateY(-3px) scale(1.03);
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ============================= */
+/* CARDS */
+/* ============================= */
+
+.faculty-cards {
+  max-width: 1200px;
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 28px;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+/* ============================= */
+/* COMMON CARD */
+/* ============================= */
+
+.faculty-card {
+  background: rgba(255, 255, 255, 0.88);
+
+  backdrop-filter: blur(14px);
+
+  padding: 30px;
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.07);
+
+  border-top: 6px solid #6366f1;
+
+  position: relative;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+
+  animation: facultyCardAppear 0.7s ease backwards;
+}
+
+/* Entrance animation */
+
+.faculty-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.faculty-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.faculty-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.faculty-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.faculty-card:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+.faculty-card:nth-child(6) {
+  animation-delay: 0.6s;
+}
+
+/* 3D hover */
+
+.faculty-card:hover {
+  transform:
+    translateY(-10px)
+    perspective(800px)
+    rotateX(2deg)
+    rotateY(-2deg);
+
+  box-shadow:
+    0 22px 45px rgba(99, 102, 241, 0.2);
+}
+
+/* Decorative glow */
+
+.faculty-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 140px;
+  height: 140px;
+
+  border-radius: 50%;
+
+  right: -55px;
+  bottom: -55px;
+
+  background: rgba(99, 102, 241, 0.08);
+
+  transition: all 0.5s ease;
+}
+
+.faculty-card:hover::after {
+  transform: scale(1.5);
+
+  background: rgba(99, 102, 241, 0.13);
+}
+
+/* ============================= */
+/* CARD CONTENT */
+/* ============================= */
+
+.faculty-card h2 {
+  margin-top: 0;
+
+  font-size: 23px;
+
+  color: #1e1b4b;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+.faculty-card p {
+  color: #555;
+
+  min-height: 45px;
+
+  line-height: 1.5;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+/* ============================= */
+/* BUTTON */
+/* ============================= */
+
+.faculty-card button {
+  margin-top: 15px;
+
+  padding: 12px 20px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  color: white;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  position: relative;
+
+  z-index: 2;
+
+  transition: all 0.3s ease;
+
+  background-size: 250% auto;
+
+  box-shadow:
+    0 6px 15px rgba(99, 102, 241, 0.2);
+}
+
+.faculty-card button:hover {
+  transform: translateY(-4px) scale(1.03);
+
+  box-shadow:
+    0 10px 25px rgba(99, 102, 241, 0.3);
+
+  background-position: right center;
+}
+
+/* ============================= */
+/* CARD COLORS */
+/* ============================= */
+
+.faculty-card:nth-child(1) {
+  border-top-color: #2563eb;
+}
+
+.faculty-card:nth-child(1) button {
+  background-image: linear-gradient(
+    90deg,
+    #2563eb,
+    #06b6d4,
+    #2563eb
+  );
+}
+
+.faculty-card:nth-child(2) {
+  border-top-color: #7c3aed;
+}
+
+.faculty-card:nth-child(2) button {
+  background-image: linear-gradient(
+    90deg,
+    #7c3aed,
+    #ec4899,
+    #7c3aed
+  );
+}
+
+.faculty-card:nth-child(3) {
+  border-top-color: #ec4899;
+}
+
+.faculty-card:nth-child(3) button {
+  background-image: linear-gradient(
+    90deg,
+    #ec4899,
+    #f43f5e,
+    #ec4899
+  );
+}
+
+.faculty-card:nth-child(4) {
+  border-top-color: #10b981;
+}
+
+.faculty-card:nth-child(4) button {
+  background-image: linear-gradient(
+    90deg,
+    #059669,
+    #10b981,
+    #34d399
+  );
+}
+
+.faculty-card:nth-child(5) {
+  border-top-color: #f97316;
+}
+
+.faculty-card:nth-child(5) button {
+  background-image: linear-gradient(
+    90deg,
+    #f97316,
+    #ef4444,
+    #f97316
+  );
+}
+
+.faculty-card:nth-child(6) {
+  border-top-color: #06b6d4;
+}
+
+.faculty-card:nth-child(6) button {
+  background-image: linear-gradient(
+    90deg,
+    #0891b2,
+    #06b6d4,
+    #0891b2
+  );
+}
+
+/* ============================= */
+/* ANIMATIONS */
+/* ============================= */
+
+@keyframes facultyBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes facultyHeaderGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes facultyFloat {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(25px, 25px);
+  }
+}
+
+@keyframes facultyAppear {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes facultyCardAppear {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+@media (max-width: 900px) {
+  .faculty-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .faculty-dashboard {
+    padding: 20px;
+  }
+
+  .faculty-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .faculty-header {
+    flex-direction: column;
+
+    text-align: center;
+
+    gap: 20px;
+  }
+}

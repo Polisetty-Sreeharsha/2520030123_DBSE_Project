@@ -1,0 +1,443 @@
+/* ============================= */
+/* CREATE EXAM PAGE */
+/* ============================= */
+
+.create-exam-page {
+  min-height: 100vh;
+  padding: 40px;
+
+  position: relative;
+  overflow: hidden;
+
+  background: linear-gradient(
+    120deg,
+    #eff6ff,
+    #f5f3ff,
+    #fdf2f8,
+    #ecfeff
+  );
+
+  background-size: 400% 400%;
+
+  animation: createExamBackground 14s ease infinite;
+
+  font-family: Arial, sans-serif;
+}
+
+/* ============================= */
+/* BACKGROUND GLOW */
+/* ============================= */
+
+.create-exam-page::before,
+.create-exam-page::after {
+  content: "";
+
+  position: absolute;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  filter: blur(5px);
+}
+
+.create-exam-page::before {
+  width: 320px;
+  height: 320px;
+
+  top: -120px;
+  right: -90px;
+
+  background: rgba(59, 130, 246, 0.18);
+
+  animation: createFloat 8s ease-in-out infinite;
+}
+
+.create-exam-page::after {
+  width: 280px;
+  height: 280px;
+
+  bottom: -100px;
+  left: -80px;
+
+  background: rgba(236, 72, 153, 0.16);
+
+  animation: createFloat 10s ease-in-out infinite reverse;
+}
+
+/* ============================= */
+/* HEADER */
+/* ============================= */
+
+.create-exam-header {
+  max-width: 800px;
+
+  margin: 0 auto 30px;
+
+  position: relative;
+
+  text-align: center;
+
+  z-index: 2;
+
+  animation: createAppear 0.7s ease;
+}
+
+.create-exam-header h1 {
+  margin: 0;
+
+  font-size: 34px;
+
+  background: linear-gradient(
+    90deg,
+    #2563eb,
+    #7c3aed,
+    #ec4899
+  );
+
+  background-size: 200% auto;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: titleGradient 5s linear infinite;
+}
+
+/* ============================= */
+/* BACK BUTTON */
+/* ============================= */
+
+.back-button {
+  position: absolute;
+
+  left: 0;
+  top: 5px;
+
+  padding: 10px 18px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: linear-gradient(
+    90deg,
+    #64748b,
+    #475569
+  );
+
+  color: white;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+
+  box-shadow:
+    0 5px 15px rgba(71, 85, 105, 0.2);
+}
+
+.back-button:hover {
+  transform: translateY(-3px) scale(1.03);
+
+  background: linear-gradient(
+    90deg,
+    #475569,
+    #334155
+  );
+
+  box-shadow:
+    0 10px 20px rgba(71, 85, 105, 0.3);
+}
+
+/* ============================= */
+/* CREATE EXAM CARD */
+/* ============================= */
+
+.create-exam-card {
+  max-width: 800px;
+
+  margin: auto;
+
+  padding: 40px;
+
+  position: relative;
+
+  z-index: 2;
+
+  background: rgba(255, 255, 255, 0.88);
+
+  backdrop-filter: blur(16px);
+
+  border: 1px solid rgba(255, 255, 255, 0.8);
+
+  border-radius: 24px;
+
+  box-shadow:
+    0 15px 40px rgba(99, 102, 241, 0.12);
+
+  animation: cardAppear 0.8s ease;
+
+  transition: all 0.3s ease;
+}
+
+.create-exam-card:hover {
+  box-shadow:
+    0 20px 50px rgba(99, 102, 241, 0.18);
+}
+
+/* Decorative corner */
+
+.create-exam-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 140px;
+  height: 140px;
+
+  border-radius: 50%;
+
+  right: -55px;
+  bottom: -55px;
+
+  background: rgba(99, 102, 241, 0.08);
+
+  pointer-events: none;
+
+  transition: all 0.5s ease;
+}
+
+.create-exam-card:hover::after {
+  transform: scale(1.4);
+
+  background: rgba(99, 102, 241, 0.12);
+}
+
+/* ============================= */
+/* FORM */
+/* ============================= */
+
+.create-exam-card form {
+  display: flex;
+
+  flex-direction: column;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+.create-exam-card label {
+  margin-bottom: 8px;
+
+  font-weight: bold;
+
+  color: #312e81;
+}
+
+/* ============================= */
+/* INPUTS */
+/* ============================= */
+
+.create-exam-card input,
+.create-exam-card textarea {
+  padding: 14px;
+
+  margin-bottom: 22px;
+
+  border: 2px solid #e5e7eb;
+
+  border-radius: 12px;
+
+  font-size: 15px;
+
+  font-family: Arial, sans-serif;
+
+  background: rgba(255, 255, 255, 0.9);
+
+  transition: all 0.3s ease;
+}
+
+.create-exam-card input:hover,
+.create-exam-card textarea:hover {
+  border-color: #a78bfa;
+
+  transform: translateY(-1px);
+}
+
+.create-exam-card input:focus,
+.create-exam-card textarea:focus {
+  outline: none;
+
+  border-color: #6366f1;
+
+  background: white;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 0 0 4px rgba(99, 102, 241, 0.1),
+    0 8px 20px rgba(99, 102, 241, 0.08);
+}
+
+.create-exam-card textarea {
+  resize: vertical;
+
+  min-height: 110px;
+}
+
+/* ============================= */
+/* CREATE BUTTON */
+/* ============================= */
+
+.create-button {
+  padding: 14px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: linear-gradient(
+    90deg,
+    #2563eb,
+    #6366f1,
+    #7c3aed,
+    #ec4899,
+    #06b6d4
+  );
+
+  background-size: 300% auto;
+
+  color: white;
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+
+  box-shadow:
+    0 8px 20px rgba(99, 102, 241, 0.25);
+
+  animation: buttonGradient 5s linear infinite;
+}
+
+.create-button:hover {
+  transform: translateY(-4px) scale(1.01);
+
+  box-shadow:
+    0 14px 30px rgba(99, 102, 241, 0.32);
+
+  background-position: right center;
+}
+
+.create-button:active {
+  transform: translateY(-1px);
+}
+
+/* ============================= */
+/* ANIMATIONS */
+/* ============================= */
+
+@keyframes createExamBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes createFloat {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(25px, 25px) scale(1.08);
+  }
+}
+
+@keyframes createAppear {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cardAppear {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes titleGradient {
+  0% {
+    background-position: 0% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes buttonGradient {
+  0% {
+    background-position: 0% center;
+  }
+
+  100% {
+    background-position: 300% center;
+  }
+}
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+@media (max-width: 700px) {
+  .create-exam-page {
+    padding: 20px;
+  }
+
+  .create-exam-header {
+    padding-top: 55px;
+  }
+
+  .create-exam-header h1 {
+    font-size: 28px;
+  }
+
+  .back-button {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .back-button:hover {
+    transform: translateX(-50%) translateY(-3px) scale(1.03);
+  }
+
+  .create-exam-card {
+    padding: 25px;
+  }
+}
