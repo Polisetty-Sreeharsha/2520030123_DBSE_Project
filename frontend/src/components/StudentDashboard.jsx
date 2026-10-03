@@ -3,6 +3,7 @@ import AvailableExams from "./AvailableExams";
 import StudentResults from "./StudentResults";
 import UpcomingExams from "./UpcomingExams";
 import ExamHistory from "./ExamHistory";
+import StudentDashboardScene from "./StudentDashboardScene";
 import "./StudentDashboard.css";
 
 function StudentDashboard({ onLogout }) {
@@ -26,78 +27,88 @@ function StudentDashboard({ onLogout }) {
       />
     );
   }
+
   if (showUpcoming) {
-  return (
-    <UpcomingExams
-      onBack={() => setShowUpcoming(false)}
-    />
-  );
-}
-if (showHistory) {
-  return (
-    <ExamHistory
-      onBack={() => setShowHistory(false)}
-    />
-  );
-}
+    return (
+      <UpcomingExams
+        onBack={() => setShowUpcoming(false)}
+      />
+    );
+  }
+
+  if (showHistory) {
+    return (
+      <ExamHistory
+        onBack={() => setShowHistory(false)}
+      />
+    );
+  }
 
   return (
     <div className="dashboard">
 
-      <div className="dashboard-header">
-        <div>
-          <h1>Student Dashboard</h1>
-          <p>Welcome to your examination portal.</p>
-        </div>
+      {/* 3D Background */}
+      <StudentDashboardScene />
 
-        <button
-          className="logout-button"
-          onClick={onLogout}
-        >
-          Logout
-        </button>
-      </div>
+      {/* Dashboard Content */}
+      <div className="dashboard-content">
 
-      <div className="cards">
+        <div className="dashboard-header">
+          <div>
+            <h1>Student Dashboard</h1>
+            <p>Welcome to your examination portal.</p>
+          </div>
 
-        {/* Available Exams */}
-        <div className="card">
-          <h2>Available Exams</h2>
-          <p>View and attend exams.</p>
-
-          <button onClick={() => setShowExams(true)}>
-            View Exams
+          <button
+            className="logout-button"
+            onClick={onLogout}
+          >
+            Logout
           </button>
         </div>
 
-        {/* Upcoming Exams */}
-        <div className="card">
-          <h2>Upcoming Exams</h2>
-          <p>Check future exams.</p>
+        <div className="cards">
 
-          <button onClick={() => setShowUpcoming(true)}>
-  View Upcoming
-</button>
-        </div>
+          {/* Available Exams */}
+          <div className="card">
+            <h2>Available Exams</h2>
+            <p>View and attend exams.</p>
 
-        {/* Results */}
-        <div className="card">
-          <h2>Results</h2>
-          <p>View your scores.</p>
+            <button onClick={() => setShowExams(true)}>
+              View Exams
+            </button>
+          </div>
 
-          <button onClick={() => setShowResults(true)}>
-            View Results
-          </button>
-        </div>
+          {/* Upcoming Exams */}
+          <div className="card">
+            <h2>Upcoming Exams</h2>
+            <p>Check future exams.</p>
 
-        {/* Exam History */}
-        <div className="card">
-          <h2>Exam History</h2>
-          <p>View your completed exams.</p>
+            <button onClick={() => setShowUpcoming(true)}>
+              View Upcoming
+            </button>
+          </div>
 
-          <button onClick={() => setShowHistory(true)}>
-  View History
-</button>
+          {/* Results */}
+          <div className="card">
+            <h2>Results</h2>
+            <p>View your scores.</p>
+
+            <button onClick={() => setShowResults(true)}>
+              View Results
+            </button>
+          </div>
+
+          {/* Exam History */}
+          <div className="card">
+            <h2>Exam History</h2>
+            <p>View your completed exams.</p>
+
+            <button onClick={() => setShowHistory(true)}>
+              View History
+            </button>
+          </div>
+
         </div>
 
       </div>
